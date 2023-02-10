@@ -70,7 +70,7 @@
             <a href="<?php echo base_url(); ?>users" class="nav-link" id="nav_users">
               <i class="nav-icon fab fa-hubspot"></i>
               <p>
-                Users
+                Tracerts
               </p>
             </a>
           </li>

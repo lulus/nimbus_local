@@ -37,7 +37,7 @@ class Clients extends CI_Controller {
 
         $edit_clients = $this->m_data->MasterGetDataSelect('radcheck','id',$id);
         $edit_clients2 = $this->m_data->GetDataClient($id);
-        $data_clients = $this->m_data->GetData('radcheck','username','ASC');
+        $data_clients = $this->m_data->GetDataClients();
         $data_attribute = $this->m_data->GetData('radgroupcheck','groupname','ASC');
         $data = array('data_clients' => $data_clients, 'edit_clients' => $edit_clients2, 'data_attribute' => $data_attribute);
 		

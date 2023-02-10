@@ -76,6 +76,15 @@ class M_Data extends CI_Model{
         return $res;
     }
 
+    public function GetDataClients(){
+        $query = $this->db->query('SELECT  radcheck.id,radcheck.username,radcheck.value,radusergroup.groupname
+                                    FROM radcheck
+                                    INNER JOIN radusergroup
+                                    ON radcheck.username = radusergroup.username');
+        $res=$query->result_array();
+        return $res;
+    }
+
     public function GetDataSelectGroup($table,$field,$value,$group){
         $this->db->where($field,$value);
         $this->db->from($table);

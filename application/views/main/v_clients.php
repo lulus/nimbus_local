@@ -7,45 +7,44 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
+            </div>
+              </div>
+          <!--  -->
           <div class="col-12">
             <div class="card">
-            <div class="card-header">
-                <button style="width:150px" class="btn btn-block btn-secondary" data-toggle="modal" data-target="#modal-adduser">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                Add Client
-                </button>
-              </div>              
               <!-- /.card-header -->
               <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table id="dashboard" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-				  	      <th style="width:15px">No</th>
-                    <th>Username</th>
-                    <th style="width:180px">Action</th>
+				  	        <th style="width:10px">No</th>
+                    <th style="width:150px">Username</th>
+                    <th style="width:150px">Group</th>
+                    <th style="width:150px">Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <?php
-                    $no = 1;
-                    foreach ($data_clients as $data_clients){
-                    ?>
-                    <tr>
-                      <td><?php echo $no; ?></td>
-                      <td><?php echo $data_clients['username']; ?></td>
-                      <td>
+                    <?php
+                      $no = 1;
+                      foreach ($data_clients as $data_clients){
+			              ?>
+                  <tr>
+					          <td><?php echo $no; ?></td>
+                    <td><?php echo $data_clients['username']; ?></td>
+                    <td><?php echo $data_clients['groupname']; ?></td>
+                    <td>
                       <form action="clients" method="post">
                         <div class="row">
                         <button style="width:60px; height:35px" class="btn btn-block btn-secondary btn-sm mr-md-3 ml-md-3 mt-md-2" name="edit_user" value="<?php echo $this->secure->encrypt_url($data_clients['id']); ?>"><i class="fas fa-edit"></i></button>
                         <button style="width:60px; height:35px" class="btn btn-block btn-secondary btn-sm mr-md-3" name="delete_user" value="<?php echo $this->secure->encrypt_url($data_clients['id']); ?>"><i class="fas fa-trash-alt"></i></button>
                         </div>
                       </form>
-                      </td>
-                    </tr>
-                      <?php 
-                        $no = $no + 1;
-                        } 
-                      ?>
+                    </td>
+                  </tr>
+                  <?php
+                    $no = $no + 1;
+                      }
+                    ?>
                   </tbody>
                 </table>
               </div>
