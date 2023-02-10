@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /nimbus_local
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+Header set Content-Security-Policy "policy-definition"
